@@ -1,0 +1,170 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsl(0, 0%, 94%);
+    font-family: "Poppins";
+}
+.cont{
+    min-width: 520px;
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 20px 20px 140px 20px;
+    @media (max-width:575px) {
+       min-width: 0;
+       padding: 25px; 
+       margin: 0 10px;
+        border-radius: 20px 20px 100px 20px;
+    }
+    &__input{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        padding: 30px 0;
+        border-bottom:2px solid hsl(0, 0%, 94%);
+        position: relative;
+        padding-bottom: 40px;
+        @media (max-width:575px) {
+            gap: 10px;
+            padding-bottom: 80px;
+         }
+        .in{
+            position: relative;
+            input{
+                width: 80px;
+                font-size: 25px;
+                font-weight: 700;
+                color: hsl(0, 0%, 8%);
+                padding: 10px 15px;
+                outline: none;
+                border: 1px solid hsl(0, 0%, 86%);
+                border-radius: 6px;
+                transition: .2s;
+                caret-color: hsla(0, 1%, 44%, 0.685);
+                @media (max-width:575px) {
+                    width: 60px;
+                    font-size: medium;
+                 }
+                &::placeholder{
+                    font-weight: 700;
+                    color: hsl(0, 1%, 44%);
+                    font-size:25px;
+                    line-height: 25px;
+                    @media (max-width:575px) {
+                        font-size: medium;
+                    }
+                }
+                &:hover{
+                    border-color: hsl(259, 100%, 65%);
+                }
+            }
+            &::after{
+                content: "DAY";
+                color: hsl(0, 1%, 44%);
+                position: absolute;
+                top: -20px;
+                left: 0;
+                font-weight: 700;
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+            &.MM::after{
+                content: "MONTH";
+            }
+            &.YYYY::after{
+                content: "YEAR";
+            }
+            &.Error{
+                &::after{
+                    color: hsl(0, 100%, 67%);
+                }
+                input{
+                    border-color: hsl(0, 100%, 67%);
+                }
+                &::before{
+                    content: "This field is required";
+                    position: absolute;
+                    bottom: -20px;
+                    left: 0;
+                    color:hsl(0, 100%, 67%);
+                    font-size: 10px;
+                    @media (max-width:575px) {
+                        bottom: -30px;
+                    }
+                    font-style: italic;
+                }
+                &.v{
+                    &.DD::before{
+                        content: "Must be a valid Day";
+                    }
+                    &.MM::before{
+                        content: "Must be a valid month";
+                        width: 150px;
+                        @media (max-width:575px) {
+                            width: fit-content;
+                         }
+                    }
+                    &.YYYY::before{
+                        content: "Must be a in the past";
+                    }
+                }
+            }
+        }
+        button{
+            position: absolute;
+            border: none;
+            border-radius: 50%;
+            background-color: hsl(259, 100%, 65%);
+            width: 70px;
+            height: 70px;
+            right: 0;
+            bottom: -35px;
+            cursor: pointer;
+            transition: .2s;
+            outline: none;
+            @media (max-width:575px) {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 60px;
+                bottom: -30px;
+                img{
+                    width: 30px !important;
+                }
+             }
+            &:hover{
+                background-color:hsl(0, 0%, 8%);
+            }
+            img{
+                width: 35px;
+            }
+        }
+    }
+    &__result{
+        margin-top: 30px;
+        @media (max-width:575px) {
+            margin-top: 60px;
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: 72px;
+            font-weight: 800;
+            font-style: italic;
+            margin: 0;
+            color: hsl(0, 0%, 8%);
+            @media (max-width:575px) {
+                font-size: 50px;
+            }
+            span{
+                color: hsl(259, 100%, 65%);
+                letter-spacing: 10px;
+                &.active{
+                    letter-spacing:normal;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

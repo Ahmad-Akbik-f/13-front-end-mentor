@@ -1,0 +1,195 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(0, 0%, 94%);
+  font-family: "Poppins";
+}
+
+.cont {
+  min-width: 520px;
+  background-color: #fff;
+  padding: 35px;
+  border-radius: 20px 20px 140px 20px;
+}
+@media (max-width: 575px) {
+  .cont {
+    min-width: 0;
+    padding: 25px;
+    margin: 0 10px;
+    border-radius: 20px 20px 100px 20px;
+  }
+}
+.cont__input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 30px 0;
+  border-bottom: 2px solid hsl(0, 0%, 94%);
+  position: relative;
+  padding-bottom: 40px;
+}
+@media (max-width: 575px) {
+  .cont__input {
+    gap: 10px;
+    padding-bottom: 80px;
+  }
+}
+.cont__input .in {
+  position: relative;
+}
+.cont__input .in input {
+  width: 80px;
+  font-size: 25px;
+  font-weight: 700;
+  color: hsl(0, 0%, 8%);
+  padding: 10px 15px;
+  outline: none;
+  border: 1px solid hsl(0, 0%, 86%);
+  border-radius: 6px;
+  transition: 0.2s;
+  caret-color: hsla(0, 1%, 44%, 0.685);
+}
+@media (max-width: 575px) {
+  .cont__input .in input {
+    width: 60px;
+    font-size: medium;
+  }
+}
+.cont__input .in input::-moz-placeholder {
+  font-weight: 700;
+  color: hsl(0, 1%, 44%);
+  font-size: 25px;
+  line-height: 25px;
+}
+.cont__input .in input::placeholder {
+  font-weight: 700;
+  color: hsl(0, 1%, 44%);
+  font-size: 25px;
+  line-height: 25px;
+}
+@media (max-width: 575px) {
+  .cont__input .in input::-moz-placeholder {
+    font-size: medium;
+  }
+  .cont__input .in input::placeholder {
+    font-size: medium;
+  }
+}
+.cont__input .in input:hover {
+  border-color: hsl(259, 100%, 65%);
+}
+.cont__input .in::after {
+  content: "DAY";
+  color: hsl(0, 1%, 44%);
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.cont__input .in.MM::after {
+  content: "MONTH";
+}
+.cont__input .in.YYYY::after {
+  content: "YEAR";
+}
+.cont__input .in.Error::after {
+  color: hsl(0, 100%, 67%);
+}
+.cont__input .in.Error input {
+  border-color: hsl(0, 100%, 67%);
+}
+.cont__input .in.Error::before {
+  content: "This field is required";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: hsl(0, 100%, 67%);
+  font-size: 10px;
+  font-style: italic;
+}
+@media (max-width: 575px) {
+  .cont__input .in.Error::before {
+    bottom: -30px;
+  }
+}
+.cont__input .in.Error.v.DD::before {
+  content: "Must be a valid Day";
+}
+.cont__input .in.Error.v.MM::before {
+  content: "Must be a valid month";
+  width: 150px;
+}
+@media (max-width: 575px) {
+  .cont__input .in.Error.v.MM::before {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+.cont__input .in.Error.v.YYYY::before {
+  content: "Must be a in the past";
+}
+.cont__input button {
+  position: absolute;
+  border: none;
+  border-radius: 50%;
+  background-color: hsl(259, 100%, 65%);
+  width: 70px;
+  height: 70px;
+  right: 0;
+  bottom: -35px;
+  cursor: pointer;
+  transition: 0.2s;
+  outline: none;
+}
+@media (max-width: 575px) {
+  .cont__input button {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    bottom: -30px;
+  }
+  .cont__input button img {
+    width: 30px !important;
+  }
+}
+.cont__input button:hover {
+  background-color: hsl(0, 0%, 8%);
+}
+.cont__input button img {
+  width: 35px;
+}
+.cont__result {
+  margin-top: 30px;
+}
+@media (max-width: 575px) {
+  .cont__result {
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+}
+.cont__result p {
+  font-size: 72px;
+  font-weight: 800;
+  font-style: italic;
+  margin: 0;
+  color: hsl(0, 0%, 8%);
+}
+@media (max-width: 575px) {
+  .cont__result p {
+    font-size: 50px;
+  }
+}
+.cont__result p span {
+  color: hsl(259, 100%, 65%);
+  letter-spacing: 10px;
+}
+.cont__result p span.active {
+  letter-spacing: normal;
+  margin-right: 10px;
+}/*# sourceMappingURL=style.css.map */
