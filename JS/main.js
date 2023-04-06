@@ -8,6 +8,7 @@ var btn = document.querySelector("button")
 let triger1 = false;
 let triger2 = false;
 let triger3 = false;
+let triger4 = false;
 let numDay;
 let numMon;
 let numYear;
@@ -17,13 +18,18 @@ let date = new Date();
 
 btn.onclick = ()=>{
     validation()
-    if(triger1 && triger2 && triger3){
+    if(triger1 && triger2 && triger3 && triger4){
         numYear = date.getFullYear() - year.value;
-        if(date.getMonth() - month.value > 0){
+        if((date.getMonth() + 1) - month.value >= 0){
             numMon =((date.getMonth() + 1) - month.value);
+            console.log('hi')
         }else{
-            numYear--;
-            numMon = 12 - Math.abs((date.getMonth()+1) - month.value)
+            if(year.value != date.getFullYear()){
+                numYear--;
+                numMon = 12 - Math.abs((date.getMonth()+1) - month.value)
+            }else{
+                numMon = 12 - Math.abs((date.getMonth()+1) - month.value)
+            }
         }
         if(date.getDate() - day.value > 0){
             numDay = (date.getDate() - day.value);
@@ -88,7 +94,7 @@ function validation(){
             triger2 = true;
         }
     }
-    if((year.value > date.getFullYear() || Number.isNaN(Number.parseInt(year.value)))){
+    if((year.value > date.getFullYear() || year.value<=0 || Number.isNaN(Number.parseInt(year.value)))){
         if(year.value == ""){
             year.parentElement.classList.add("Error")
             year.parentElement.classList.remove("v")
@@ -106,5 +112,26 @@ function validation(){
             year.parentElement.classList.remove("Error","v")
             triger3 = true;
         }
+    }
+    if(year.value == date.getFullYear()){
+        if(Number.parseInt(month.value) >= (date.getMonth() + 1)){
+            if(month.value == (date.getMonth() + 1)){
+                if(Number.parseInt(day.value) > date.getDate()){
+                    year.parentElement.classList.add("Error","v")
+                    triger4 = false;
+                }else{
+                    year.parentElement.classList.remove("Error","v")
+                    triger4 = true;
+                }
+            }else{
+                year.parentElement.classList.add("Error","v")
+                triger4 = false;
+            }
+        }else{
+            year.parentElement.classList.remove("Error","v")
+            triger4 = true;
+        }
+    }else{
+        triger4 = true;
     }
 }
